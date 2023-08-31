@@ -1,3 +1,7 @@
+<?php
+ require("db-connect.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +22,7 @@ VALUES('$user_firstName','$user_lastName','$user_email','$user_password')";
 
 // Sql query validation
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo "Signup successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
@@ -32,6 +36,7 @@ if ($conn->query($sql) === TRUE) {
         E-mail: <input type="email" name="user_email" placeholder="email"><br>
         Password <input type="password" name="user_password" placeholder="Password"><br>
         <input type="submit" value="submit">
+        <h3>Have an account? <a href="login.php">Login</a></h3>
     </form>
 </head>
 
