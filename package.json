@@ -1,0 +1,23 @@
+{
+  "name": "practice-php",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aplloshahriar/practice-php.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aplloshahriar/practice-php/issues"
+  },
+  "homepage": "https://github.com/aplloshahriar/practice-php#readme",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.1"
+  }
+}

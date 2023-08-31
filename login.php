@@ -10,6 +10,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+ 
     <!-- get data from signup -->
     <?php
 
@@ -39,8 +40,8 @@ session_start();
     }
     ?>
     <!-- form to input -->
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-        <h2> Login here</h2> <br>
+    <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <h2 > Login here</h2> <br>
         E-mail: <input type="email" name="user_email" placeholder="email"><br>
         Password <input type="password" name="user_password" placeholder="Password"><br>
         <input type="submit" value="Login">
