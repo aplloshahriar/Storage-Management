@@ -22,7 +22,7 @@ if (!empty($user_name)) {
         
         </div>
        
-        <a class="btn btn-outline-primary" href="logout.php">Logout</a>
+        <a class="btn btn-outline-warning" href="logout.php">Logout</a>
 
         
 
