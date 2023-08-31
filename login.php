@@ -1,5 +1,6 @@
 <?php
 require("db-connect.php");
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -19,11 +20,19 @@ require("db-connect.php");
         $sql = "SELECT * FROM user WHERE user_email='$user_email' AND
         user_password='$user_password' ";
 
-        $query=$conn->query($sql);
+        $query = $conn->query($sql);
 
         // Sql query validation
-        if (mysqli_num_rows($query)>0) {
-            echo "Login successfully";
+        if (mysqli_num_rows($query) > 0) {
+            
+            $data = mysqli_fetch_array($query);
+            // session start code 
+            $user_firstName = $data['user_firstName'];
+            $user_email = $data['user_email'];
+            $_SESSION['name'] = $user_firstName;
+            $_SESSION['email'] =  $user_email;
+
+            header("location:index.php");
         } else {
             echo "Error";
         }
