@@ -17,13 +17,25 @@ if (!empty($user_name)) {
         <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <title>Index</title>
 
-        <div class="">
-            <h1>Welcome to My Storage</h1>
+        <!-- navbar -->
+     <div class=" container bg-light ">
+     <div class="px-0 pt-3 bg-warning-subtle">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h2 class="text-center "><a class=" text-danger text-decoration-none" href="index.php">Storage Management System</a></h2>
+                    </div>
 
+                    <div class="col-sm-2">
+                       <p class=""><?php echo $user_name?> <a class="btn btn-outline-warning " href="logout.php">Logout</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
-        <div class="container text-center">
+
+        <div class=" text-center">
             <div class="row">
                 <!-- Column 1 -->
                 <div class="col-sm-3">
@@ -63,7 +75,8 @@ if (!empty($user_name)) {
                             <a href="#" class="  m-0 list-group-item list-group-item-action " aria-current="true">
                                 Add Store Product
                             </a>
-                            <a href="google.com" class="list-group-item list-group-item-action " aria-current="true">Store Product List</a>
+                            <a href="google.com" class="list-group-item list-group-item-action " aria-current="true">Store
+                                Product List</a>
 
                         </div>
 
@@ -75,7 +88,8 @@ if (!empty($user_name)) {
                             <a href="#" class="  m-0 list-group-item list-group-item-action " aria-current="true">
                                 Add Sell Product
                             </a>
-                            <a href="google.com" class="list-group-item list-group-item-action " aria-current="true">Sell Product List</a>
+                            <a href="google.com" class="list-group-item list-group-item-action " aria-current="true">Sell
+                                Product List</a>
 
                         </div>
 
@@ -91,9 +105,10 @@ if (!empty($user_name)) {
 
             </div>
         </div>
+     </div>
 
 
-        <a class="btn btn-outline-warning" href="logout.php">Logout</a>
+
 
 
 
