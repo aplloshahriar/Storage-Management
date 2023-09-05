@@ -10,8 +10,11 @@ require("db-connect.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <title>Sign Up</title>
-  <!-- get data from form -->
-  <?php
+</head>
+
+<body>
+ <!-- get data from form -->
+ <?php
   if (isset($_GET['user_firstName'])) {
     $user_firstName = $_GET['user_firstName'];
     $user_lastName = $_GET['user_lastName'];
@@ -78,10 +81,6 @@ VALUES('$user_firstName','$user_lastName','$user_email','$user_password')";
         <span class="text-danger"> Login</span> </a>
     </h3>
   </form>
-</head>
-
-<body>
-
 </body>
 
 </html>
