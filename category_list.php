@@ -16,13 +16,21 @@ require("db-connect.php");
     <?php
     $sql = "SELECT * FROM category";
     $query = $conn->query($sql);
-    echo "<table>
-    <tr><td>Category</td><td>Date</td></tr>";
+    echo "<table border='1'>
+    <tr>
+    <th>Category</th>
+    <th>Date</th>
+    <th>Action</th>
+    </tr>";
     while ($data = mysqli_fetch_assoc($query)) {
+        $category_id = $data['category_id'];
         $category_name = $data['category_name'];
         $category_entryDate = $data['category_entryDate'];
-        echo "<tr><td>$category_name</td>
-         <td>$category_entryDate</td></tr> ";
+        echo "<tr>
+        <td>$category_name</td>
+        <td>$category_entryDate</td>
+        <td><a href='edit_category.php?id=$category_id'>Edit</a></td>
+         </tr> ";
     }
     echo "</table>";
     ?>
