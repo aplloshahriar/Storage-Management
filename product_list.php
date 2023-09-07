@@ -1,5 +1,17 @@
 <?php
 require("db-connect.php");
+$sql_1 = " SELECT * FROM category";
+$query_1 = $conn->query($sql_1);
+
+$data_list = array();
+
+while ($data_1 = mysqli_fetch_assoc($query_1)) {
+    $category_id = $data_1['category_id'];
+    $category_name = $data_1['category_name'];
+    $data_list[$category_id]=$category_name;
+
+}
+// print_r( $data_list); 
 
 ?>
 
@@ -32,7 +44,7 @@ require("db-connect.php");
         echo "<tr>
         
         <td>$product_name</td>
-        <td>$product_category</td>
+        <td> $data_list[$product_category]</td>
         <td>$product_code</td>
         <td><a href='edit_product.php?id=$product_id'>Edit</a></td>
          </tr> ";
