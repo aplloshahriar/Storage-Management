@@ -56,7 +56,7 @@ VALUES ('$product_name',  '$product_category','$product_code','$product_entryDat
                 $category_id = $data['category_id'];
                 $category_name = $data['category_name'];
 
-                echo "<option name='$category_id'> $category_name</option>";
+                echo "<option value='$category_id'> $category_name</option>";
             }
 
             ?>
