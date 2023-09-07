@@ -32,6 +32,8 @@ require("db-connect.php");
         // sql error validation
     
     }
+
+    // get updated data
     if (isset($_GET['category_name'])) {
         $new_category_name = $_GET['category_name'];
         $new_category_entryDate = $_GET['category_entryDate'];

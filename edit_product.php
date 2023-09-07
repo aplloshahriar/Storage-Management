@@ -9,7 +9,7 @@ require("db-connect.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Category</title>
+    <title>Edit Product</title>
 
 
 </head>
@@ -21,28 +21,35 @@ require("db-connect.php");
         $get_id = $_GET['id'];
 
         // data select into table by id
-        $sql = "SELECT * FROM category WHERE category_id=$get_id ";
+        $sql = "SELECT * FROM product WHERE product_id=$get_id ";
 
         $query = $conn->query($sql);
         $data = mysqli_fetch_assoc($query);
 
-        $category_id = $data['category_id'];
-        $category_name = $data['category_name'];
-        $category_entryDate = $data['category_entryDate'];
-        // sql error validation
-    
+        $product_id = $data['product_id'];
+        $product_name = $data['product_name'];
+        $product_category = $data['product_category'];
+        $product_code = $data['product_code'];
+        $product_entryDate = $data['product_entryDate'];
     }
-    if (isset($_GET['category_name'])) {
-        $new_category_name = $_GET['category_name'];
-        $new_category_entryDate = $_GET['category_entryDate'];
-        $new_category_id = $_GET['category_id'];
 
-        $sql1 = "UPDATE category SET 
-        category_name='$new_category_name'  ,           
-        category_entryDate='$new_category_entryDate'    
-        WHERE category_id= $new_category_id";
+    // <!-- get updated data -->
+    
+    if (isset($_GET['product_name'])) {
+        $new_product_name = $_GET['product_name'];
+        $new_product_id = $_GET['product_id'];
+        $new_product_category = $_GET['product_category'];
+        $new_product_code = $_GET['product_code'];
+        $new_product_entryDate = $_GET['product_entryDate'];
 
-        if ($conn->query( $sql1) === TRUE) {
+        $sql1 = "UPDATE product SET 
+        product_name='$new_product_name'  ,  
+        product_category='$new_product_category',          
+        product_code='$new_product_code'  ,           
+        product_entryDate='$new_product_entryDate'          
+        WHERE product_id= $new_product_id";
+
+        if ($conn->query($sql1) === TRUE) {
             echo "Record updated successfully";
         } else {
             echo "Error updating record: " . $conn->error;
@@ -52,14 +59,49 @@ require("db-connect.php");
 
     ?>
 
-    <form action="edit_category.php" method="GET">
 
-        <label for="category_name">Category</label><br>
-        <input type="text" name="category_name" value="<?php echo $category_name ?>"><br>
-        <label for="category_entryDate">Category Entry Date</label><br>
-        <input type="date" name="category_entryDate" value="<?php echo $category_entryDate ?>"><br>
-        <input type="text" name="category_id" value="<?php echo $category_id ?>" hidden>
-        <input type="submit" value="Update">
+
+
+
+
+    <!-- data acquire from category table for product category -->
+    <?php
+    $sql_2 = " SELECT * FROM category";
+    $query = $conn->query($sql_2);
+
+    ?>
+
+
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+
+        <label for="product_id hidden" hidden>Product Name</label>
+        <input type="text" name="product_id" value="<?php echo $product_id ?>" hidden>
+
+        <label for="product_name">Product Name</label><br>
+        <input type="text" name="product_name" value="<?php echo $product_name ?>"><br>
+
+        <label for="product_category">Product Category</label><br>
+        <select name="product_category"><br>
+            <?php
+            while ($data = mysqli_fetch_array($query)) {
+                $category_id = $data['category_id'];
+                $category_name = $data['category_name'];
+
+                echo "<option value='$category_id'> $category_name</option>";
+            }
+
+            ?>
+
+        </select><br>
+
+
+        <label for="product_code">Product Code</label><br>
+        <input type="text" name="product_code" value="<?php echo $product_code ?>"><br>
+
+        <label for="product_entryDate">Product Entry Date</label><br>
+        <input type="date" name="product_entryDate" value="<?php echo $product_entryDate ?>"><br>
+
+        <input type="submit" value="submit">
     </form>
 </body>
 
