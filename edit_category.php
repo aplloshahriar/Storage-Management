@@ -10,7 +10,8 @@ require("db-connect.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Category</title>
-
+    <!-- bootstrap css -->
+    <!-- <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
 </head>
 
@@ -44,7 +45,7 @@ require("db-connect.php");
         category_entryDate='$new_category_entryDate'    
         WHERE category_id= $new_category_id";
 
-        if ($conn->query( $sql1) === TRUE) {
+        if ($conn->query($sql1) === TRUE) {
             echo "Record updated successfully";
         } else {
             echo "Error updating record: " . $conn->error;
@@ -54,7 +55,7 @@ require("db-connect.php");
 
     ?>
 
-    <form action="edit_category.php" method="GET">
+    <form class="container d-flex justify-content-center align-items-center " action="edit_category.php" method="GET">
 
         <label for="category_name">Category</label><br>
         <input type="text" name="category_name" value="<?php echo $category_name ?>"><br>
